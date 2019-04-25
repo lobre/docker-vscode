@@ -17,6 +17,9 @@ RUN mkdir -p /home/dev/.local/share/code-server/User && \
 COPY ./code-ext-install /usr/local/bin/
 RUN code-ext-install
 
+# Link fonts
+RUN ln -s /home/dev/.config/dotfiles/graphical/.fonts /home/dev/.fonts
+
 EXPOSE 8443
 
 ENTRYPOINT ["dumb-init", "code-server"]
