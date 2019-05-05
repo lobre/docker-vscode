@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Update dotfiles with git
+cd /home/dev/.config/dotfiles
+git checkout .
+git pull
+
+# Re-apply web settings
+code-web-settings
+
+# Install/Update extensions
+code-ext-install

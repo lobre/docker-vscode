@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Merge settings
+jq -s '.[0] * .[1]' \
+    /home/dev/.local/share/code-server/User/settings.json \
+    /home/dev/.local/share/code-server/User/settings.web.json \
+    | sponge /home/dev/.local/share/code-server/User/settings.json

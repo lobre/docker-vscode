@@ -6,4 +6,6 @@ Web based VsCode with all personal configuration
 
 Then open your browser on http://localhost:8443 and you can code!
 
-To update extensions: `code-ext-install`.
+To update from dotfiles: `code-update`.
+To simply update extensions: `code-ext-install`.
+To re-apply web settings: `code-web-settings`.

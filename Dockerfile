@@ -13,12 +13,16 @@ RUN mkdir -p /home/dev/.local/share/code-server/User && \
     ln -s /home/dev/.config/dotfiles/graphical/.config/Code/User/settings.json /home/dev/.local/share/code-server/User/settings.json && \
     ln -s /home/dev/.config/dotfiles/graphical/.config/Code/User/keybindings.json /home/dev/.local/share/code-server/User/keybindings.json
 
-# Install custom extensions
-COPY ./code-ext-install /usr/local/bin/
-RUN code-ext-install
+# Add web specific configurations
+COPY settings.web.json /home/dev/.local/share/code-server/User/settings.web.json
 
-# Link fonts
-RUN ln -s /home/dev/.config/dotfiles/graphical/.fonts /home/dev/.fonts
+# Add custom scripts
+COPY ./scripts/code-update /usr/local/bin/
+COPY ./scripts/code-web-settings /usr/local/bin/
+COPY ./scripts/code-ext-install /usr/local/bin/
+
+# Apply web settings and install extensions
+RUN code-update
 
 EXPOSE 8443
 

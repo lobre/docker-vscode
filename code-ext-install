@@ -1,3 +1,0 @@
-#!/bin/bash
-
-cat /home/dev/.config/dotfiles/graphical/.config/Code/extensions.sh | sed 's/code/code-server -e \/home\/dev\/.local\/share\/code-server\/extensions/' | bash 
