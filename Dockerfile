@@ -21,6 +21,11 @@ COPY ./scripts/code-update /usr/local/bin/
 COPY ./scripts/code-web-settings /usr/local/bin/
 COPY ./scripts/code-ext-install /usr/local/bin/
 
+# Adjust permissions
+RUN sudo chmod +x /usr/local/bin/code-update \
+    /usr/local/bin/code-web-settings \
+    /usr/local/bin/code-ext-install
+
 # Apply web settings and install extensions
 RUN code-update
 
